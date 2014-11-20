@@ -1,11 +1,6 @@
-  <br>
-  <div class="jumbotron" style = "padding: 10px 20px; border: 1px solid #000000"><h1>gCamp</h1>
-  <br>
-  <br>
-  <p><font size="6">Your life, organized.</font></p>
-  </div>
-  <br>
-  <br>
+<div class="jumbotron" style = "padding: 10px 20px; border: 1px solid #000000"><h1>gCamp</h1>
+<p><font size="6">Your life, organized.</font></p>
+</div>
 
 <div class="row">
       <%= image_tag "4.jpg", class:"col-xs-6 col-md-4"%>
@@ -50,17 +45,14 @@
   </div>
 
 
-  <!-- <div>
-    <% @quotes.each do |quote| %>
-      <%= quote %>
-      <br>
-    <% end %>
-  </div> -->
 </div>
 
 <div>
   <% @quotes.each do |quote| %>
-    <%= quote %>
+    <h4><%= quote[0] %></h4>
+    <% quote[1].each do |person| %>
+      <i style = "color:#999999;"><%= person %></i>
+    <% end %>
     <br>
     <br>
   <% end %>
