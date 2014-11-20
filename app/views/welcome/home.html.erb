@@ -1,5 +1,5 @@
-<div class="jumbotron" style = "padding: 10px 20px; border: 1px solid #000000"><h1>gCamp</h1>
-<p><font size="6">Your life, organized.</font></p>
+<div class="jumbotron"><h1>gCamp</h1>
+<p>Your life, organized.</p>
 </div>
 
 <div class="row">
@@ -51,7 +51,7 @@
   <% @quotes.each do |quote| %>
     <h4><%= quote[0] %></h4>
     <% quote[1].each do |person| %>
-      <i style = "color:#999999;"><%= person %></i>
+      <em><span class = "person"> <%= person %></span></em>
     <% end %>
     <br>
     <br>
