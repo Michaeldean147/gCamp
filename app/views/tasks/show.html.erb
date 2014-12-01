@@ -1,4 +1,10 @@
-<p style = "color: green" id="notice"><%= notice %></p>
+
+<% if notice %>
+  <div class="alert alert-success text-center" role="alert">
+    <p style = "color: green" id="notice"><%= notice %></p>
+  </div>
+<%end%>
+
 <br>
 <p>
   <strong>Description:</strong>
