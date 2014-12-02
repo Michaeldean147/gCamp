@@ -1,10 +1,10 @@
-<p><h1>Frequently Asked Questions</h1></p>
+<h1>Frequently Asked Questions</h1>
 
 <div>
   <% @QA.each do |question| %>
     <h3><%= question[0] %></h3>
     <% question[1].each do |answer| %>
-      <h4><%= answer %></h4>
+      <p><%= answer %></p>
       <br>
     <% end %>
   <% end %>
