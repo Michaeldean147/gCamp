@@ -32,3 +32,18 @@ body{
 .panel-body{
   min-height: 100px;
 }
+
+thead{
+  tr{
+    border-top:0px
+  }
+}
+
+td{
+  padding-left: 10px;
+  border:0px !important;
+}
+
+tr{
+  border-top: 1px solid #dddddd;
+}

@@ -7,8 +7,12 @@
 <table class="table">
   <thead>
     <tr>
-        <th><h4>Description</h4></th>
-        <th colspan="3"></th>
+        <th>
+          <h4>Description</h4>
+        </th>
+        <th>
+          <h4>Complete</h4>
+        </th>
     </tr>
   </thead>
 
@@ -16,10 +20,12 @@
   <tbody>
       <% @tasks.each do |task| %>
       <tr>
-        <td class = "col-md-10"><%= task.description %></td>
-        <td><%= link_to 'Show', task, class: "btn btn-success pull-right " %></td>
-        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info pull-right " %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" %></td>
+        <td class = "col-md-2"><%= task.description %></td>
+        <td class = "col-md-2"><%= task.completed %></td>
+        <td class = "pull-right"><%= link_to 'Show', task, class: "btn btn-success" %>
+        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-info" %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
