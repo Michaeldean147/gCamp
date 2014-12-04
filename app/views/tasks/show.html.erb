@@ -16,5 +16,10 @@
   <strong><%= @task.completed %></strong>
 </p>
 
+<p>
+  <strong>Due Date:</strong>
+  <strong><%= @task.due_date %></strong>
+</p>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
