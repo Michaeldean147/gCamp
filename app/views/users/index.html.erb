@@ -33,6 +33,7 @@
     <tr>
       <td class = "col-md-2"><%= user.name %></td>
       <td class = "col-md-10"><%= mail_to user.email %></td>
+      <td> <%= link_to 'Edit', edit_user_path(user) %></td>
       </td>
     </tr>
     <% end %>
