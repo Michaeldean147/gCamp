@@ -1,0 +1,41 @@
+<% if notice %>
+  <div class="alert alert-success text-center" role="alert">
+    <p style = "color: green" id="notice"><%= notice %></p>
+  </div>
+<%end%>
+
+<div class="page-header">
+ <%= link_to 'New User', new_user_path, class: "btn btn-info pull-right col-sm-2" %>
+ <div class = " col-md-2 pull-right">
+   <!-- <%= link_to 'All', tasks_path(status: "Complete" ) %>
+   |
+   <%= link_to 'Incomplete', tasks_path(status: "Incomplete") %> -->
+ </div>
+<h1>Users</h1>
+
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>
+          <h4>Name</h4>
+        </th>
+        <th>
+          <h4>Email</h4>
+        </th>
+    </tr>
+  </thead>
+
+<tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td class = "col-md-2"><%= user.name %></td>
+      <td class = "col-md-10"><%= mail_to user.email %></td>
+      </td>
+    </tr>
+    <% end %>
+</tbody>
+
+</table>
