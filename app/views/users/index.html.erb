@@ -20,7 +20,10 @@
   <thead>
     <tr>
         <th>
-          <h4>Name</h4>
+          <h4>First Name</h4>
+        </th>
+        <th>
+          <h4>Last Name</h4>
         </th>
         <th>
           <h4>Email</h4>
@@ -31,10 +34,10 @@
 <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td class = "col-md-2"><%= user.name %></td>
+      <td class = "col-md-2"><%= user.first_name %></td>
+      <td class = "col-md-2"><%= user.last_name %></td>
       <td class = "col-md-10"><%= mail_to user.email %></td>
       <td> <%= link_to 'Edit', edit_user_path(user) %></td>
-      <td> <%= link_to 'Delete', user, method: :delete, data: {confirm: "Are You Sure?"}%></td>
     </tr>
     <% end %>
 </tbody>

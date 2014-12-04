@@ -3,9 +3,15 @@
 <%= form_for(@user, html:{class:"form-horizontal"}) do |f| %>
 
   <div class="form-group">
-    <%= f.label :name, class: "col-sm-1 control-label " %>
+    <%= f.label :first_name, class: "col-sm-1 control-label " %>
     <div class="col-sm-4">
-      <%= f.text_field :name, class:"form-control" %>
+      <%= f.text_field :first_name, class:"form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-sm-1 control-label " %>
+    <div class="col-sm-4">
+      <%= f.text_field :last_name, class:"form-control" %>
     </div>
   </div>
 
@@ -16,10 +22,16 @@
     </div>
   </div>
 
-  <div class="form-group ">
+  <div class="form-group">
     <div class="col-sm-offset-1 col-sm-10">
       <%= f.submit class:"btn btn-info" %>
       <button type="button" class="btn btn-default "><%= link_to 'Cancel', users_path %></button>
+    </div>
+  </div>
+
+  <div class = "form-goup">
+    <div class="well col-sm-offset-1 col-sm-4 ">
+        <%= link_to 'Delete', @user , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %>
     </div>
   </div>
 
