@@ -3,8 +3,17 @@ class TasksController < ApplicationController
 
   # GET /tasks
   # GET /tasks.json
+  # set a instance variable called "type" and depending on the result of an If Else statement
   def index
     @tasks = Task.all
+
+    if params[:status] == "Incomplete"
+      @tasks = Task.where(completed: false)
+
+    else
+      @tasks = Task.all
+    end
+
   end
 
   # GET /tasks/1

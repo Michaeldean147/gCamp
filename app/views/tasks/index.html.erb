@@ -1,6 +1,12 @@
 <div class="page-header">
  <%= link_to 'New Task', new_task_path, class: "btn btn-info pull-right col-sm-2" %>
- <h1>Tasks</h1>
+ <div class = " col-md-2 pull-right">
+   <%= link_to 'All', tasks_path(status: "Complete" ) %>
+   |
+   <%= link_to 'Incomplete', tasks_path(status: "Incomplete") %>
+ </div>
+<h1>Tasks</h1>
+
 </div>
 
 
@@ -27,7 +33,7 @@
         <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </td>
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
 </table>
 
