@@ -1,0 +1,24 @@
+<div>
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-info pull-right" %>
+  <h1><%=@user.first_name + " " + @user.last_name%></h1>
+</div>
+
+<% if notice %>
+  <div class="alert alert-success text-center" role="alert">
+    <p style = "color: green" id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<br>
+
+<dl class="dl-horizontal">
+  <dt>First Name:</dt>
+  <dd><%= @user.first_name %></dd>
+
+  <dt>Last Name:</dt>
+  <dd><%= @user.last_name %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= mail_to @user.email %></dd>
+
+</dl>
