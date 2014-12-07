@@ -1,0 +1,13 @@
+<% if notice %>
+  <div class="alert alert-success text-center" role="alert">
+    <p style = "color: green" id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to 'Delete', @project , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger pull-right" %>
+  <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info pull-right" %>
+  <h1><%= @project.name %></h1>
+</div>
