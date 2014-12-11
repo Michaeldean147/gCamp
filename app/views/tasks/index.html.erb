@@ -6,10 +6,10 @@
 
 <div class="page-header">
  <%= link_to 'New Task', new_task_path, class: "btn btn-info pull-right col-sm-2" %>
- <div class = " col-md-2 pull-right">
-   <%= link_to 'All', tasks_path(status: "Complete" ) %>
+ <div class = " col-md-3 pull-right">
+   <%= link_to 'All Tasks', tasks_path(status: "Complete" ) %>
    |
-   <%= link_to 'Incomplete', tasks_path(status: "Incomplete") %>
+   <%= link_to 'Incomplete Tasks', tasks_path(status: "Incomplete") %>
  </div>
 <h1>Tasks</h1>
 

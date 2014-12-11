@@ -7,7 +7,9 @@
 <br>
 
 <div>
-  <%= link_to 'Delete', @project , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger pull-right" %>
-  <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info pull-right" %>
+  <div>
+    <%= link_to 'Delete', @project , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger pull-right project-button" %>
+    <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info pull-right project-button" %>
+  </div>
   <h1><%= @project.name %></h1>
 </div>

@@ -4,7 +4,7 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger col-md-6 col-sm-offset-2">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this organization from being saved:</h2>
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
     <ul>
     <% @user.errors.full_messages.each do |msg| %>

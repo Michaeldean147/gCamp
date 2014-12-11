@@ -3,7 +3,7 @@
 <% if @project.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger col-md-6 col-sm-offset-1">
-    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this organization from being saved:</h2>
+    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
     <ul>
     <% @project.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
