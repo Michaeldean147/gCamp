@@ -1,5 +1,6 @@
-<h1>Create Project</h1><br>
-
+<div class = "col-md-4">
+  <h1>Create Project</h1><br>
+</div>
 <% if @project.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger col-md-6 col-sm-offset-1">
@@ -14,7 +15,7 @@
 <% end %>
 
 
-<%= form_for(@project, html:{class:"form-horizontal col-md-10"}) do |f| %>
+<%= form_for(@project, html:{class:"form-horizontal col-md-9"}) do |f| %>
 
   <div class="form-group">
     <%= f.label :name, class: "col-xs-1" %>

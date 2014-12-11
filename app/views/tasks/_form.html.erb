@@ -11,18 +11,18 @@
   </div>
 <% end %>
 
-<%= form_for(@task, html:{class:"form-horizontal col-md-11"}) do |f| %>
+<%= form_for(@task, html:{class:"form-horizontal col-md-12"}) do |f| %>
 
 
   <div class="form-group">
-    <%= f.label :description, class: "col-sm-1 control-label " %>
+    <%= f.label :description, class: "col-xs-1" %>
     <div class="col-sm-4">
       <%= f.text_field :description, class:"form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :due_date, class: "col-sm-1 control-label " %>
+    <%= f.label :due_date, class: "col-xs-1" %>
     <div class="col-sm-4">
       <%= f.date_field :due_date, class:"form-control" %>
     </div>
