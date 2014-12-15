@@ -1,5 +1,7 @@
 == README
 
+![build status](https://travis-ci.org/Michaeldean147/gCamp.svg?branch=master)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
