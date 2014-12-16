@@ -4,7 +4,7 @@ feature 'CRUDing Tasks' do
   scenario 'user deletes a task' do
     Task.create!(
       description: "Test",
-      due_date: "2015-12-25",
+      due_date: Date.today,
     )
 
     visit tasks_path
@@ -17,7 +17,7 @@ feature 'CRUDing Tasks' do
     visit tasks_path
     click_on "New Task"
     fill_in "Description", with: "Test"
-    fill_in "Due date", with: "2015-12-25"
+    fill_in "Due date", with: Date.today
 
 
     click_on "Create Task"
@@ -28,7 +28,7 @@ feature 'CRUDing Tasks' do
   scenario 'user edits a task' do
     Task.create!(
       description: "Test",
-      due_date: "2015-12-25",
+      due_date: Date.today,
     )
 
     visit tasks_path
@@ -41,7 +41,7 @@ feature 'CRUDing Tasks' do
   scenario 'user visits show page' do
     task = Task.create!(
       description: "Test",
-      due_date: "2015-12-25",
+      due_date: Date.today,
     )
 
     visit tasks_path
