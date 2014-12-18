@@ -15,13 +15,16 @@
         <a class="navbar-brand" href="/">gCamp</a>
       </div>
       <div class "navbar-header">
-        <ul class="navbar-right">
+        <ul class="navbar-brand navbar-right">
+         <div id="sign-in">
           <% if current_user %>
+            <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user%>
             <%= link_to "Sign Out", signout_path %>
           <% else %>
             <%= link_to "Sign Up", signup_path %>
             <%= link_to "Sign In", signin_path %>
           <% end %>
+         </div>
         </ul>
       </div>
     </div>
