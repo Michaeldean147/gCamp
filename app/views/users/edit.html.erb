@@ -1,57 +1,6 @@
 <div class = "col-md-12">
   <h1>Edit User</h1><br>
 </div>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger col-md-6 col-sm-offset-2">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  </div>
-<% end %>
-
-
-<%= form_for(@user, html:{class:"form-horizontal col-md-11"}) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :first_name, class: "col-xs-2" %>
-    <div class="col-sm-4">
-      <%= f.text_field :first_name, class:"form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name, class: "col-xs-2" %>
-    <div class="col-sm-4">
-      <%= f.text_field :last_name, class:"form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email, class: "col-xs-2" %>
-    <div class="col-sm-4">
-      <%= f.text_field :email, class:"form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class:"btn btn-info" %>
-      <button type="button" class="btn btn-default "><%= link_to 'Cancel', users_path %></button>
-    </div>
-  </div>
-
-  <div class = "form-goup">
-    <div class="well col-sm-offset-2 col-sm-4 ">
-      <%= link_to 'Delete', @user , method: :delete, data: {confirm: "Are You Sure?"}, class: " col-sm-4 col-sm-offset-4 btn btn-danger" %>
-    </div>
-  </div>
-
-
-
-<% end %>
+<%=  render partial: '/shared/errors', locals: {feature: @user} %>
+<%= render 'form' %>

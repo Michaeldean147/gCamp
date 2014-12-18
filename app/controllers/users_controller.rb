@@ -23,11 +23,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @edit = true
   end
 
   def update
     @user = User.find(params[:id])
-
+    
     @user.update(user_params)
 
     if @user.save
@@ -49,7 +50,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :first_name,
       :last_name,
-      :email
+      :email,
+      :password,
+      :password_confirmation
     )
 
   end

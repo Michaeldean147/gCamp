@@ -2,5 +2,5 @@
   <h1>Edit task</h1><br>
 </div>
 
-
+<%=  render partial: '/shared/errors', locals: {feature: @task} %>
 <%= render 'form' %>

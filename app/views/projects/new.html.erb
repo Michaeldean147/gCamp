@@ -1,35 +1,6 @@
 <div class = "col-md-12">
   <h1>Create Project</h1><br>
 </div>
-<% if @project.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger col-md-6 col-sm-offset-1">
-    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-    <ul>
-    <% @project.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-    </div>
-  </div>
-<% end %>
 
-
-<%= form_for(@project, html:{class:"form-horizontal col-md-9"}) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :name, class: "col-xs-1" %>
-    <div class="col-sm-4">
-      <%= f.text_field :name, class:"form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-      <%= f.submit class:"btn btn-info" %>
-      <button type="button" class="btn btn-default "><%= link_to 'Cancel', projects_path %></button>
-    </div>
-  </div>
-
-
-<% end %>
+<%=  render partial: '/shared/errors', locals: {feature: @project} %>
+<%= render 'form' %>

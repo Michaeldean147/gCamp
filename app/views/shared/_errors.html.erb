@@ -1,0 +1,12 @@
+<% if feature.errors.any? %>
+  <div id="error_explanation" class= "container">
+    <div class="alert alert-danger col-md-6 col-sm-offset-1">
+    <h2><%= pluralize(feature.errors.count, "error") %> prohibited this project from being saved:</h2>
+    <ul>
+    <% feature.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+  </div>
+<% end %>

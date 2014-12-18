@@ -1,18 +1,4 @@
-<% if @task.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger col-md-6 col-sm-offset-1">
-    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-    <ul>
-    <% @task.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-    </div>
-  </div>
-<% end %>
-
 <%= form_for(@task, html:{class:"form-horizontal col-md-12"}) do |f| %>
-
 
   <div class="form-group">
     <%= f.label :description, class: "col-xs-1" %>

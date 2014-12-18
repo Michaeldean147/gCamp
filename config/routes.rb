@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   get 'faq' => "pages#faq"
 
+  get '/sign-up' => 'signup#new', as: :signup
+  post '/sign-up' => 'signup#create'
+  get '/sign-in' => 'signin#new', as: :signin
+  post '/sign-in' => 'signin#create'
+  get '/sign-out' => 'signin#destroy', as: :signout
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
