@@ -5,7 +5,8 @@ feature 'CRUDing Users' do
     User.create!(
       first_name: "John",
       last_name: "Smith",
-      email: "smith999@osu.edu"
+      email: "smith999@osu.edu",
+      password: "buckeyes"
     )
 
     visit users_path
@@ -22,6 +23,8 @@ feature 'CRUDing Users' do
     fill_in "First name", with: "John"
     fill_in "Last name", with: "Smith"
     fill_in "Email", with: "smith999@osu.edu"
+    fill_in "Password", with: "buckeyes"
+    fill_in "Password confirmation", with: "buckeyes"
 
     click_on "Create User"
 
@@ -32,7 +35,9 @@ feature 'CRUDing Users' do
     User.create!(
       first_name: "John",
       last_name: "Smith",
-      email: "smith999@osu.edu"
+      email: "smith999@osu.edu",
+      password: "buckeyes"
+
     )
 
     visit users_path
@@ -47,7 +52,8 @@ feature 'CRUDing Users' do
     user = User.create!(
       first_name: "John",
       last_name: "Smith",
-      email: "smith999@osu.edu"
+      email: "smith999@osu.edu",
+      password: "buckeyes"
     )
 
     visit users_path

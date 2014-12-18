@@ -4,15 +4,13 @@
     <h1>Sign up for gCamp!</h1><br>
 
     <% if @user.errors.any? %>
-      <div class= "container">
-        <div class="form-group text-danger col-md-6">
-        <ul style="list-style-type:none">
+        <div class="text-danger">
+        <ul style="list-style-type:none ;padding: 0">
         <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
         </div>
-      </div>
     <% end %>
 
     <div class="form-group">
