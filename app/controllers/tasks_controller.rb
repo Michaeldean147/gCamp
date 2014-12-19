@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @tasks = @project.tasks
 
     if params[:status] == "Incomplete"
-      @tasks = Task.where(completed: false)
+      @tasks = @project.tasks.where(completed: false)
 
     else
       @tasks = @project.tasks
