@@ -2,36 +2,45 @@ require 'rails_helper'
 
 feature 'CRUDing Tasks' do
   scenario 'user deletes a task' do
-    Task.create!(
-      description: "Test",
-      due_date: Date.today,
+    project = Project.create!(
+      name: "Project",
     )
 
-    visit tasks_path
+    visit project_tasks_path(project)
+    click_on "New Task"
+    fill_in "Description", with: "Test"
+    fill_in "Due date", with: Date.today
+    click_on "Create Task"
+    click_on "Back"
     click_on "Destroy"
 
-    expect(page.current_path).to eq tasks_path
+    expect(page).to have_content("Task was successfully destroyed")
   end
 
   scenario 'user creates a task' do
-    visit tasks_path
+    project = Project.create!(
+      name: "Test",
+    )
+    visit project_tasks_path(project)
     click_on "New Task"
     fill_in "Description", with: "Test"
     fill_in "Due date", with: Date.today
 
 
     click_on "Create Task"
-
     expect(page).to have_content("Test")
   end
 
   scenario 'user edits a task' do
-    Task.create!(
-      description: "Test",
-      due_date: Date.today,
+    project = Project.create!(
+      name: "Test",
     )
 
-    visit tasks_path
+    visit project_tasks_path(project)
+    click_on "New Task"
+    fill_in "Description", with: "Test"
+    fill_in "Due date", with: Date.today
+    click_on "Create Task"
     click_on "Edit"
     fill_in "Description", with: "Tested"
     click_on "Update Task"
@@ -39,15 +48,18 @@ feature 'CRUDing Tasks' do
   end
 
   scenario 'user visits show page' do
-    task = Task.create!(
-      description: "Test",
-      due_date: Date.today,
+    project = Project.create!(
+      name: "Test",
     )
 
-    visit tasks_path
+    visit project_tasks_path(project)
+    click_on "New Task"
+    fill_in "Description", with: "Test"
+    fill_in "Due date", with: Date.today
+    click_on "Create Task"
+    click_on "Back"
     click_on "Show"
-
-    expect(page.current_path).to eq task_path(task)
+    expect(page).to have_content "Description: Test"
   end
 
 end
