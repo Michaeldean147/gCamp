@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :tasks, :users, :projects
+  resources :users
+  resources :projects do
+    resources :tasks
+  end
+
 
   root 'welcome#home'
 

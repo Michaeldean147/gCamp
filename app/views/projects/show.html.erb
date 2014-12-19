@@ -11,5 +11,10 @@
     <%= link_to 'Delete', @project , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger pull-right project-button" %>
     <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info pull-right project-button" %>
   </div>
-  <h1><%= @project.name %></h1>
+  <h1><%= @project.name %></h1><br>
+  <ol class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li class="active"><%= @project.name %></li>
+  </ol>
+  <%= link_to "#{@project.tasks.count} Tasks", project_tasks_path(@project), class: "pull-left"%>
 </div>

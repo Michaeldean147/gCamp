@@ -4,14 +4,19 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   # set a instance variable called "type" and depending on the result of an If Else statement
+
+   before_action do
+    @project = Project.find(params[:project_id])
+   end
+
   def index
-    @tasks = Task.all
+    @tasks = @project.tasks
 
     if params[:status] == "Incomplete"
       @tasks = Task.where(completed: false)
 
     else
-      @tasks = Task.all
+      @tasks = @project.tasks
     end
 
   end
@@ -23,7 +28,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = @project.tasks.new
   end
 
   # GET /tasks/1/edit
@@ -34,11 +39,11 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = @project.tasks.new(task_params)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -52,8 +57,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        format.html { redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -66,7 +70,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_path, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to project_tasks_path(@project), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
