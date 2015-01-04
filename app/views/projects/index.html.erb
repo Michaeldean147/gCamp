@@ -17,6 +17,9 @@
           <h4>Name</h4>
         </th>
         <th>
+          <h4>Members</h4>
+        </th>
+        <th>
           <h4>Tasks</h4>
         </th>
     </tr>
@@ -27,6 +30,7 @@
       <% @projects.each do |project| %>
       <tr>
         <td><%= link_to "#{project.name}", project %></td>
+        <td><%= link_to "#{project.memberships.count}",project_memberships_path(project) %></td>
         <td><%= link_to "#{project.tasks.count}", project_tasks_path(project) %></td>
       </tr>
       <% end %>

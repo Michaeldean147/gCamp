@@ -1,0 +1,61 @@
+<h1><%= "#{@project.name}: Manage Members" %></h1><br>
+
+<ol class="breadcrumb col-md-8">
+<li><a href="/projects">Projects</a></li>
+<li><%= link_to "#{@project.name}", @project %></li>
+<li class="active">Memberships</li>
+</ol><br>
+
+<% if notice %>
+  <div class="alert alert-success text-center col-md-8" role="alert">
+    <p style = "color: green" id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="alert alert-danger col-md-8" role="alert">
+    <h4><%= pluralize(alert.count, "error") %> prohibited this member from being saved:</h4>
+    <div class = "col-sm-offset-1"
+      <% alert.each do |alert| %>
+      <ol><li><%= alert %></li></ol>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for [@project, @membership] do |f| %>
+<div class="well form-inline col-md-8">
+    <%= f.collection_select :user_id, User.all, :id, :name , {include_blank: "Please select a user..."}, {class: "form-control col-md-4"} %>
+    <%= f.select :role, ["Owner", "Member"], {include_blank: false}, {class: "form-control col-md-4"} %>
+    <%= f.submit class:" form-control btn btn-info" %>
+  </div>
+<% end %>
+
+<% @memberships.each do |membership| %>
+  <div class="form-inline col-md-8">
+    <div class = "form-group col-md-3">
+      <div class = "input-group">
+      <%= link_to membership.user.name %>
+      </div>
+    </div>
+    <%= form_for [@project, membership] do |f| %>
+    <div class = "form-group col-md-2">
+      <div class = "input-group">
+    <%= f.select :role, ["Owner", "Member"], {include_blank: false}, {class: "form-control col-md-4"} %>
+      </div>
+    </div>
+
+    <div class = "form-group col-md-2">
+      <div class = "input-group">
+        <%= f.submit "Update", class:" form-control btn btn-info" %>
+      </div>
+    </div>
+
+    <div class = "form-group col-md-3">
+      <div class = "input-group">
+        <%= link_to "", project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<% end %>

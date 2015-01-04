@@ -16,5 +16,6 @@
   <li><a href="/projects">Projects</a></li>
   <li class="active"><%= @project.name %></li>
   </ol>
-  <%= link_to "#{@project.tasks.count} Tasks", project_tasks_path(@project), class: "pull-left"%>
+  <%= link_to "#{@project.tasks.count} Tasks", project_tasks_path(@project), class: "pull-left"%><br><br>
+  <%= link_to "#{@project.memberships.count} Members", project_memberships_path(@project), class: "pull-left"%>
 </div>
