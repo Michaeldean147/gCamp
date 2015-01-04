@@ -18,6 +18,10 @@ class MembershipsController < ApplicationController
       end
     end
 
+    def show
+
+    end
+
     def destroy
       @membership = @project.memberships.find(params[:id])
       if @membership.destroy

@@ -35,7 +35,7 @@
   <div class="form-inline col-md-8">
     <div class = "form-group col-md-3">
       <div class = "input-group">
-      <%= link_to membership.user.name %>
+      <%= link_to membership.user.name, membership.user %>
       </div>
     </div>
     <%= form_for [@project, membership] do |f| %>
